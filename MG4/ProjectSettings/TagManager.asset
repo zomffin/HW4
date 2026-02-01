@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Score
   - Obstacle
+  - Ground
   layers:
   - Default
   - TransparentFX

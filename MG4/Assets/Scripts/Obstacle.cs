@@ -22,7 +22,7 @@ public class Obstacle : MonoBehaviour
         Debug.Log("Obstacle hit trigger"); 
         if (other.CompareTag("Finish"))
         {
-            Destroy(this); 
+            Destroy(this.gameObject); 
         }
     }
 }
