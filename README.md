@@ -3,6 +3,6 @@
 Write your Devlog here!
 
 ## Open-Source Assets
-If you added any other assets, list them here!
-- [Brackey's Platformer Bundle](https://brackeysgames.itch.io/brackeys-platformer-bundle) - sound effects
-- [2D pixel art seagull sprites](https://elthen.itch.io/2d-pixel-art-seagull-sprites) - seagull sprites
+- [Simple Bird Sprites](https://hredbird.itch.io/simple-bird-sprites) - Bird sprites
+- [Industrial Pipe Platformer Tileset](https://wwolf-w.itch.io/industrial-pipe-platformer-tileset) - Pipe and Ground sprites
+- [Double Exclamation Mark Emoji](https://emojiterra.com/double-exclamation-mark/) - Bang bang emoji, Google Noto Color Emoji 16.0
