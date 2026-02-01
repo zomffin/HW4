@@ -22,7 +22,8 @@ public class UIHandler : MonoBehaviour
     void Start()
     {
         GameController.Instance.Player.score += updateScore;
-        GameController.Instance.Player.end += gameOver; 
+        GameController.Instance.Player.end += gameOver;
+        GameController.Instance.restart += reset; 
     }
 
     // Update is called once per frame
@@ -55,10 +56,11 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    void resetScore()
+    void reset()
     {
         _currScore = 0;
         _bangbang.SetActive(false);
+        _gotHighScore = false; 
         _gameOverScreen.SetActive(false); 
     }
 

@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float _upForce;
     [SerializeField] Rigidbody2D _rigidbody;
+    [SerializeField] Vector2 _startPosition; 
 
     public delegate void scoreDelegate(); 
     public event scoreDelegate score;
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        GameController.Instance.restart += reset; 
     }
 
     // Update is called once per frame
@@ -28,28 +29,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Entered Trigger"); 
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Score"))
         {
-            Debug.Log("Got a point");
             score?.Invoke(); 
         }
-        Debug.Log("Exited Trigger"); 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Hit an obstacle");
             end?.Invoke();
             _gameOver = true; 
         }
+    }
+
+    private void reset()
+    {
+        this.transform.position = _startPosition;
+        _gameOver = false; 
     }
 }

@@ -5,6 +5,8 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get; private set; }
     public Player Player { get; private set; }
 
+    public delegate void restartDelegate();
+    public event restartDelegate restart;
 
     private void Awake()
     {
@@ -25,9 +27,12 @@ public class GameController : MonoBehaviour
     void endGame()
     {
         Debug.Log("Game ended");
-        Time.timeScale = 0f; 
+    }
 
-
+    public void restartGame()
+    {
+        Debug.Log("Game restarted"); 
+        restart?.Invoke();
     }
     
 }
