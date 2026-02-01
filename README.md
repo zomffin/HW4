@@ -1,6 +1,6 @@
 # HW4
 ## Devlog
-Write your Devlog here!
+If I'm understanding the MVC pattern correctly, the Controller would be the GameController, and the View would be the Player, Audio, and UI scripts. The GameController is a singleton, and acts as the locator for the Player so all the other scripts can subscribe to the Player's events. 
 
 ## Open-Source Assets
 - [Simple Bird Sprites](https://hredbird.itch.io/simple-bird-sprites) - Bird sprites
