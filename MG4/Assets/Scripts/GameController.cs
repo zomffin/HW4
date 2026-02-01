@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] GameObject _obstacle; 
     [SerializeField] float _timer;
+    [SerializeField] float _maxHeight;
+    [SerializeField] float _minHeight; 
     private float _currTime;
     private bool _gameEnded = false; 
 
@@ -31,8 +33,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        GameObject obstacle = Instantiate(_obstacle);
-        obstacle.transform.position = this.transform.position; 
+        spawnObstacle(); 
     }
 
     private void Update()
@@ -40,8 +41,7 @@ public class GameController : MonoBehaviour
         _currTime += Time.deltaTime; 
         if (_currTime >= _timer && !_gameEnded)
         {
-            GameObject obstacle = Instantiate(_obstacle);
-            obstacle.transform.position = this.transform.position;
+            spawnObstacle(); 
             _currTime = 0; 
         }
     }
@@ -62,7 +62,14 @@ public class GameController : MonoBehaviour
         Debug.Log("Game restarted"); 
         restart?.Invoke();
         _gameEnded = false; 
-        _currTime = 0; 
+        _currTime = 0;
+        spawnObstacle(); 
+    }
+
+    private void spawnObstacle()
+    {
+        GameObject obstacle = Instantiate(_obstacle);
+        obstacle.transform.position = new Vector2(this.transform.position.x, Random.Range(_minHeight, _maxHeight));
     }
     
 }

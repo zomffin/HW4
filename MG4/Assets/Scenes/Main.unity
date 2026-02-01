@@ -672,7 +672,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3302,7 +3302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacle: {fileID: 3971561130501309376, guid: 0f13ca9463af0d44fb7e910f02c67cae, type: 3}
-  _timer: 3
+  _timer: 2
+  _maxHeight: 3
+  _minHeight: -3
 --- !u!4 &1643027775
 Transform:
   m_ObjectHideFlags: 0
