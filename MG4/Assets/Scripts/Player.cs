@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public event scoreDelegate score;
 
     public delegate void endDelegate();
-    public event endDelegate end; 
+    public event endDelegate end;
+
+    private bool _gameOver; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +22,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !_gameOver)
         {
             _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, _upForce);
         }
@@ -46,7 +48,8 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Hit an obstacle");
-            end?.Invoke(); 
+            end?.Invoke();
+            _gameOver = true; 
         }
     }
 }

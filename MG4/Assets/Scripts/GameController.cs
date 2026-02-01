@@ -24,7 +24,10 @@ public class GameController : MonoBehaviour
     
     void endGame()
     {
-        Debug.Log("Game ended"); 
+        Debug.Log("Game ended");
+        Time.timeScale = 0f; 
+
+
     }
     
 }
