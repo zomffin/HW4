@@ -8,6 +8,10 @@ public class GameController : MonoBehaviour
     public delegate void restartDelegate();
     public event restartDelegate restart;
 
+    [SerializeField] GameObject _obstacle; 
+    [SerializeField] float _timer;
+    private float _currTime; 
+
     private void Awake()
     {
         if(Instance != null && Instance != this)
@@ -23,7 +27,25 @@ public class GameController : MonoBehaviour
         Player.end += endGame;
 
     }
-    
+
+    private void Start()
+    {
+        GameObject obstacle = Instantiate(_obstacle);
+        obstacle.transform.position = this.transform.position; 
+    }
+
+    private void Update()
+    {
+        _currTime += Time.deltaTime; 
+        if (_currTime >= _timer)
+        {
+            GameObject obstacle = Instantiate(_obstacle);
+            obstacle.transform.position = this.transform.position;
+            _currTime = 0; 
+        }
+    }
+
+
     void endGame()
     {
         Debug.Log("Game ended");
