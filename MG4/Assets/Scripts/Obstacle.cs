@@ -19,6 +19,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Obstacle hit trigger"); 
         if (other.CompareTag("Finish"))
         {
             Destroy(this); 

@@ -49,10 +49,10 @@ public class UIHandler : MonoBehaviour
     void gameOver()
     {
         _gameOverScreen.SetActive(true);
-        _finalScore.text = "Score: " + _currScore + "\n High score: " + _highScore;
+        _finalScore.text = "Score: " + _currScore + "\nHigh score: " + _highScore;
         if (_gotHighScore)
         {
-            _finalScore.text += "\n You got a new high score!"; 
+            _finalScore.text += "\nYou got a new high score!"; 
         }
     }
 
