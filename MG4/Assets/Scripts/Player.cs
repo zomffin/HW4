@@ -3,7 +3,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float _upForce;
-    [SerializeField] Rigidbody2D _rigidbody; 
+    [SerializeField] Rigidbody2D _rigidbody;
+
+    public delegate void scoreDelegate(); 
+    public event scoreDelegate score;
+
+    public delegate void endDelegate();
+    public event endDelegate end; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +22,6 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("Hit Space");
             _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, _upForce);
         }
     }
@@ -30,7 +35,8 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Score"))
         {
-            Debug.Log("Got a point"); 
+            Debug.Log("Got a point");
+            score?.Invoke(); 
         }
         Debug.Log("Exited Trigger"); 
     }
@@ -39,7 +45,8 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Obstacle"))
         {
-            Debug.Log("Hit an obstacle"); 
+            Debug.Log("Hit an obstacle");
+            end?.Invoke(); 
         }
     }
 }

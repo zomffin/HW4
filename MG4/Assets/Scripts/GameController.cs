@@ -5,7 +5,6 @@ public class GameController : MonoBehaviour
     public static GameController Instance { get; private set; }
     public Player Player { get; private set; }
 
-    
 
     private void Awake()
     {
@@ -15,18 +14,17 @@ public class GameController : MonoBehaviour
             return; 
         }
 
+        Instance = this; 
+
         Player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+        Player.end += endGame;
 
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    void endGame()
     {
-        
+        Debug.Log("Game ended"); 
     }
+    
 }
