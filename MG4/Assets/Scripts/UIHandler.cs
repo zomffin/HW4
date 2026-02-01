@@ -35,15 +35,7 @@ public class UIHandler : MonoBehaviour
     void updateScore()
     {
         _currScore++;
-        _scoreText.text = "Score: " + _currScore; 
-
-        if (_currScore > _highScore)
-        {
-            _bangbang.SetActive(true); 
-            _highScore = _currScore;
-            _highScoreText.text = "Highscore: " + _highScore;
-            _gotHighScore = true; 
-        }
+        updateUI(); 
     }
 
     void gameOver()
@@ -61,7 +53,21 @@ public class UIHandler : MonoBehaviour
         _currScore = 0;
         _bangbang.SetActive(false);
         _gotHighScore = false; 
-        _gameOverScreen.SetActive(false); 
+        _gameOverScreen.SetActive(false);
+        updateUI(); 
+    }
+
+    void updateUI()
+    {
+        _scoreText.text = "Score: " + _currScore;
+
+        if (_currScore > _highScore)
+        {
+            _bangbang.SetActive(true);
+            _highScore = _currScore;
+            _highScoreText.text = "Highscore: " + _highScore;
+            _gotHighScore = true;
+        }
     }
 
 }
