@@ -20,4 +20,26 @@ public class Player : MonoBehaviour
             _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, _upForce);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Entered Trigger"); 
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Score"))
+        {
+            Debug.Log("Got a point"); 
+        }
+        Debug.Log("Exited Trigger"); 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Hit an obstacle"); 
+        }
+    }
 }
